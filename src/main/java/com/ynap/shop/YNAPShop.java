@@ -81,7 +81,12 @@ public class YNAPShop {
      * Add a product to the Basket
      */
     public void addProductToBasket(String productId) {
-    	basket.addProduct(products.get(productId));
+    	if(products.containsKey(productId))
+    		basket.addProduct(products.get(productId));
+    	else {
+    		logger.error("Prodouct Id " + productId + "is not a valid product");
+    		throw new IllegalArgumentException("Invalid input");
+    	}
     }
 
     /**

@@ -37,6 +37,11 @@ public class YNAPShopTest {
         shop.addProductToBasket("1");
         assertThat("Products have been added to a basket.", shop.getBasketItems().size(), is(equalTo(2)));
     }
+    
+    @Test(expected = IllegalArgumentException.class)
+    public void addProductToBasket_invalidInput_throwIllegalArgumentException() {
+        shop.addProductToBasket("55");
+    }
 
     // Exercise 2b - Remove product from basekt
     @Test
